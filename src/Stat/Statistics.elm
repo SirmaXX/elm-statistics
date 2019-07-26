@@ -1,4 +1,4 @@
-module Stat.Statistics exposing (findLen, geomult, irange, mean, range, sum,onedivide,harmonmap)
+module Stat.Statistics exposing (findLen, geomult, harmonmap, irange, mean, onedivide, powerfunc, range, sum)
 
 
 range : Int -> Int -> List Int
@@ -19,7 +19,14 @@ irange a b =
         a :: irange (a + 1) b
 
 
+sum : List Float -> Float
+sum liste =
+    List.foldl (+) 0 liste
 
+
+powerfunc : Float -> Float -> Float
+powerfunc number power =
+    number ^ power
 
 
 geomult : List Float -> Float
@@ -37,22 +44,12 @@ findLen list =
     toFloat (List.length list)
 
 
-
-sum : List Float -> Float
-sum liste =
-    List.foldl (+) 0 liste
-
-
-onedivide :Float ->Float
-onedivide number=
-     1/number
+onedivide : Float -> Float
+onedivide number =
+    1 / number
 
 
-
-harmonmap: List Float ->  Float
-harmonmap liste=
-   List.map onedivide liste
-   |> sum 
-   
-
-
+harmonmap : List Float -> Float
+harmonmap liste =
+    List.map onedivide liste
+        |> sum
