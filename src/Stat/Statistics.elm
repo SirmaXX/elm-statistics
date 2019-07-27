@@ -1,27 +1,15 @@
-module Stat.Statistics exposing (findLen, geomult, harmonmap, irange, mean, onedivide, powerfunc, range, sum)
+module Stat.Statistics exposing (findLen, geomult, harmonicalmean, harmonmap, mean, onedivide, powerfunc, sum)
 
-
-range : Int -> Int -> List Int
-range a b =
-    if a == b then
-        []
-
-    else
-        a :: range (a + 1) b
-
-
-irange : Int -> Int -> List Int
-irange a b =
-    if a == b then
-        [ b ]
-
-    else
-        a :: irange (a + 1) b
+--its calculating for list summation
 
 
 sum : List Float -> Float
 sum liste =
     List.foldl (+) 0 liste
+
+
+
+--Power function
 
 
 powerfunc : Float -> Float -> Float
@@ -34,9 +22,17 @@ geomult liste =
     List.foldl (*) 1 liste
 
 
+
+--function for average value
+
+
 mean : List Float -> Float
 mean list =
     sum list / findLen list
+
+
+
+--function for list length
 
 
 findLen : List Float -> Float
@@ -44,12 +40,29 @@ findLen list =
     toFloat (List.length list)
 
 
+
+--divider for harmonical mean
+
+
 onedivide : Float -> Float
 onedivide number =
     1 / number
+
+
+
+--function summation function which divided values for harmonical mean
 
 
 harmonmap : List Float -> Float
 harmonmap liste =
     List.map onedivide liste
         |> sum
+
+
+
+--harmonical mean function
+
+
+harmonicalmean : List Float -> Float
+harmonicalmean liste =
+    findLen liste * (harmonmap liste ^ -1.0)
