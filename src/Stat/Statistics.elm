@@ -1,4 +1,4 @@
-module Stat.Statistics exposing (findLen, geomult, harmonicalmean, harmonmap, mean, onedivide, powerfunc, sum)
+module Stat.Statistics exposing (findLen, geometricalmean, geomult, harmonicalmean, harmonmap, mean, onedivide, powerfunc, sum)
 
 --its calculating for list summation
 
@@ -15,11 +15,6 @@ sum liste =
 powerfunc : Float -> Float -> Float
 powerfunc number power =
     number ^ power
-
-
-geomult : List Float -> Float
-geomult liste =
-    List.foldl (*) 1 liste
 
 
 
@@ -66,3 +61,21 @@ harmonmap liste =
 harmonicalmean : List Float -> Float
 harmonicalmean liste =
     findLen liste * (harmonmap liste ^ -1.0)
+
+
+
+--geometrical multiplication
+
+
+geomult : List Float -> Float
+geomult liste =
+    List.foldl (*) 1 liste
+
+
+
+--geometrical mean
+
+
+geometricalmean : List Float -> Float
+geometricalmean liste =
+    geomult liste ^ (1 / findLen liste)
