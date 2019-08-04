@@ -1,4 +1,4 @@
-module Stat.Statistics exposing (findLen, geometricalmean, geomult, harmonicalmean, harmonmap, mean, onedivide, powerfunc, sum)
+module Stat.Statistics exposing (findLen, geometricalmean, geomult, harmonicalmean, harmonmap, mean, onedivide, powerfunc, sum,calstandar,sqrtcalstan)
 
 --its calculating for list summation
 
@@ -79,3 +79,31 @@ geomult liste =
 geometricalmean : List Float -> Float
 geometricalmean liste =
     geomult liste ^ (1 / findLen liste)
+
+
+
+
+
+--calculations standart devition 
+
+
+--subtraction from mean for standart deviation
+
+     
+
+calstandar:List Float -> Float
+calstandar liste=
+      List.foldl (-) (mean liste) liste
+     
+
+
+sqrtcalstan:List Float ->List Float
+sqrtcalstan liste =
+      List.map sqrt liste 
+    
+      
+
+                
+
+     
+    
